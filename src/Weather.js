@@ -15,7 +15,7 @@ export default function Weather() {
   };
 
   return (
-    <div className="Weather">
+    <div className="weather">
       <form className="mb-3">
         <div className="row">
           <div className="col-9">
@@ -58,7 +58,7 @@ export default function Weather() {
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-6 details">
           <ul>
             <li>Humidity: {weatherData.humidity}%</li>
             <li>Wind: {weatherData.wind} km/h</li>

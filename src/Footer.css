@@ -1,8 +1,17 @@
 .Coder {
-  font-style: italic;
   font-weight: bold;
 }
 
+.Footer a {
+  text-decoration: none;
+}
+
+.Coder,
 .Footer {
+  font-size: 20px;
   text-align: center;
+}
+
+a:hover {
+  color: blue;
 }
