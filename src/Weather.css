@@ -5,6 +5,9 @@
   box-shadow: 2px 2px 2px 1px rgba(177, 172, 172, 0.2);
   background: linear-gradient(to bottom left, #24248f 0%, #ffff99 100%);
     text-align:center;
+ 
+
+   
 }
 
 .weather .overview {
@@ -14,8 +17,9 @@
 
 .weather .weather-temperature img {
   margin-right: 5px;
-  height: 64px;
-  width: 64px;
+  height: 100px;
+  width: 90px;
+  margin-bottom:10px;
 }
 
 .weather .weather-temperature strong {
