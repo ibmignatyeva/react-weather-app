@@ -1,22 +1,46 @@
-import React from "react";
+import React,{ useState} from "react";
 import "./Weather.css";
 import "./App.css";
+import axios from "axios";
 
-export default function Weather() {
-  let weatherData = {
-    wind: 8,
-    humidity: 75,
-    pressure: 1020,
-    temperature: 28,
-    city: "Brasilia",
-    date: "Tuesday, 13:23 pm",
-    description: "Partly Cloud",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png",
-  };
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
-  return (
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "0233456441ae9bed17f1e1efd62754d2";
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (weatherData.ready) {
+    return (
     <div className="weather">
-      <form className="mb-3">
+       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-9">
             <input
@@ -24,6 +48,8 @@ export default function Weather() {
               placeholder="Type a city.."
               className="form-control"
               autoComplete="off"
+              autoFocus="on"
+               onChange={handleCityChange}
             />
           </div>
           <div className="col-3">
@@ -68,4 +94,8 @@ export default function Weather() {
       </div>
     </div>
   );
+}  else {
+    search();
+    return "Loading...";
+  }
 }
