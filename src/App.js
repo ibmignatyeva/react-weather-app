@@ -18,6 +18,7 @@ export default function App() {
           </a>{" "}
           <span> Open-Source Code by </span>{" "}
           <em className="Coder"> Ive Ignatyeva. </em>
+          <a href="https://react-weatherapp-ive.netlify.app/"target="_blank" rel="noreferrer"> Hosted on Netlify.</a>
         </footer>
       </div>
     </div>
