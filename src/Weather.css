@@ -1,10 +1,16 @@
 .Weather {
   font-family: arial, sans-serif;
   border: 1px solid #dadde1;
-  padding: 16px;
+  padding: 20px 20px;
   border-radius: 4px;
   color: rgb(37, 36, 36);
   background: linear-gradient(to bottom left, #24248f 0%, #ffff99 100%);
+}
+
+.Weather h1,
+.Weather ul{
+   text-align:center;
+
 }
 
 .Weather h1 {
@@ -12,11 +18,13 @@
   font-weight: 100;
   margin: 20px 0 0 0;
   line-height: 29px;
+
 }
 
 .Weather ul {
   margin: 0;
   padding: 0;
+  margin-bottom:30px;
 }
 
 .Weather li {
@@ -24,6 +32,8 @@
   font-weight: 100;
   line-height: 19px;
   list-style: none;
+  
+ 
 }
 
 .Weather .temperature {
